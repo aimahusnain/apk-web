@@ -23,6 +23,7 @@ export async function generateMetadata({ params }) {
 
   let imageList = [siteMetadata.socialBanner];
   if (blog.image) {
+  // @ts-expect-error
     imageList =
       typeof blog.image.filePath === "string"
         ? [siteMetadata.siteUrl + blog.image.filePath.replace("../public", "")]
@@ -64,6 +65,7 @@ export default function BlogPage({ params }) {
 
   let imageList = [siteMetadata.socialBanner];
   if (blog.image) {
+  // @ts-expect-error
     imageList =
       typeof blog.image.filePath === "string"
         ? [siteMetadata.siteUrl + blog.image.filePath.replace("../public", "")]
