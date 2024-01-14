@@ -148,14 +148,10 @@ export default function BlogPage({ params }) {
                 <LucideTwitter className="w-full h-full hover:text-emerald-500 transition-all" />
               </Link>
               <Link href="/" className="w-5 h-7">
-                <FaXTwitter className="w-full h-full hover:text-emerald-500 transition-all" />
+                {/* <FaXTwitter className="w-full h-full hover:text-emerald-500 transition-all" /> */}
               </Link> 
-              
-              
-              
-              
               <Link href="/" className="w-5 h-7">
-                <FaWhatsapp className="w-full h-full hover:text-emerald-500 transition-all" />
+                {/* <FaWhatsapp className="w-full h-full hover:text-emerald-500 transition-all" /> */}
               </Link>
             </div>
             <button className="transition-all hover:bg-emerald-700 p-3 bg-emerald-500 text-white font-bold uppercase text-xl rounded-md mt-3">
