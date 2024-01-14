@@ -1,6 +1,7 @@
 import BlogDetails from "@/src/components/Blog/BlogDetails";
 import RenderMdx from "@/src/components/Blog/RenderMdx";
 import Tag from "@/src/components/Elements/Tag";
+import { Button } from "@/src/components/ui/Button";
 import siteMetadata from "@/src/utils/siteMetaData";
 import { allBlogs } from "contentlayer/generated";
 import { slug } from "github-slugger";
@@ -93,9 +94,9 @@ export default function BlogPage({ params }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       /> */}
       <div className="w-full h-full">
-        <div className="flex flex-row gap-6 m-14 rounded-2xl p-11 py-7 bg-zinc-500/15 shadow-2xl">
+        <div className="flex flex-row m-20 gap-6 shadow-2xl">
           <img
-            className="rounded-2xl min-h-[200px] object-cover"
+            className="rounded-2xl max-h-[200px] object-cover"
             width={180}
             src={blog.image.filePath.replace("../public", "")}
             alt={blog.title}
@@ -129,6 +130,7 @@ export default function BlogPage({ params }) {
               className=""
             />
             </div>
+            
             <h1 className="text-2xl font-bold">{blog.title}</h1>
 
             <span className="text-gray-500 text-sm mt-2">
@@ -136,7 +138,7 @@ export default function BlogPage({ params }) {
             </span>
 
             <p className="mt-2 text-gray-600 text-sm">
-              <RenderMdx extraclass=" tracking-wide py-6" blog={blog} />
+              <RenderMdx blog={blog} />
             </p>
             <div className="flex gap-5 p-3">
               <Link href="/" className="w-5 h-7">
@@ -152,17 +154,17 @@ export default function BlogPage({ params }) {
                 {/* <FaWhatsapp className="w-full h-full hover:text-emerald-500 transition-all" /> */}
               </Link>
             </div>
-            <button className="transition-all hover:bg-emerald-700 p-3 bg-emerald-500 text-white font-bold uppercase text-xl rounded-md mt-3">
+            <Button className="transition-all hover:bg-emerald-700 p-3 bg-emerald-500 text-white font-bold uppercase text-xl rounded-md mt-3">
               Download
-            </button>
+            </Button>
           </div>
         </div>
         <div>
           <BlogDetails blog={blog} slug={params.slug} />
           <div className="w-full h-fit flex justify-center items-center">
-            <button className="transition-all px-12 mt-6 hover:bg-emerald-700 p-3 bg-emerald-500 text-white font-bold uppercase text-xl rounded-full">
+            <Button className="transition-all px-12 mt-6 hover:bg-emerald-700 p-3 bg-emerald-500 text-white font-bold uppercase text-xl rounded-full">
               Download
-            </button>
+            </Button>
           </div>
           <div className="reviews-section">
       </div>
