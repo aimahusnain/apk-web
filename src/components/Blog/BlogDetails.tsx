@@ -1,22 +1,50 @@
+"use client";
+
+import React from "react";
 import { format, parseISO } from "date-fns";
 import Link from "next/link";
-import React from "react";
 import { slug } from "github-slugger";
 import ViewCounter from "./ViewCounter";
+import { Plus, ShieldCheck } from "lucide-react";
 
 const BlogDetails = ({ blog, slug: blogSlug }) => {
   return (
-    <div className="px-2  md:px-10 bg-accent dark:bg-accentDark text-light dark:text-dark py-2 flex items-center justify-around flex-wrap text-lg sm:text-xl font-medium mx-5  md:mx-10 rounded-lg">
-      <time className="m-3">
-        {format(parseISO(blog.publishedAt), "LLLL d, yyyy")}
-      </time>
-      <span className="m-3">
-        <ViewCounter slug={blogSlug} />
-      </span>
-      <div className="m-3">{blog.readingTime.text}</div>
-      <Link href={`/categories/${slug(blog.tags[0])}`} className="m-3">
-        #{blog.tags[0]}
-      </Link>
+    <div className="mx-14 shadow-lg p-4 rounded-2xl grid grid-cols-2">
+      <div className="flex gap-4">
+        <Plus className="text-green-500 h-14 w-14 mt-4" />
+        <div className="flex flex-col">
+          <p className="text-xl font.bold">Additional Information:</p>
+          <div className="flex gap-5 py-3">
+            <div className="flex flex-col">
+              <p className="font-bold">Updated</p>
+              <time>{format(parseISO(blog.publishedAt), "LLLL d, yyyy")}</time>
+            </div>
+
+            <div>
+              <p className="font-bold">Price</p>
+              $0
+            </div>
+
+            <div>
+              <p className="font-bold">Tag</p>
+              <Link href={`/categories/${slug(blog.tags[0])}`}>
+                #{blog.tags[0]}
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex gap-4">
+        <ShieldCheck className="text-green-500 h-20 w-20 mt-2" />
+        <div className="flex flex-col">
+          <p className="font-bold text-xl">Good speed and no viruses!</p>
+          <p className="py-3">
+            On our site you can easily download Cricket League.apk! All without
+            registration and send SMS!
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
