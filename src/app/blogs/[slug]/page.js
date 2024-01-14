@@ -6,8 +6,6 @@ import { allBlogs } from "contentlayer/generated";
 import { slug } from "github-slugger";
 import { Facebook, LucideTwitter } from "lucide-react";
 import Link from "next/link";
-import { FaWhatsapp } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
 
 export async function generateStaticParams() {
   return allBlogs.map((blog) => ({ slug: blog._raw.flattenedPath }));
